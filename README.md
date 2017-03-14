@@ -1,9 +1,13 @@
 # AdvanceWarsGridWorld
 recreation and expansion of Advance Wars in Java with GridWorld API
 
+With 7 new Units!
+
 If you want to know how to play, you will be linked to Wikipedia in-game along with a breif summary of directions. 
 
 Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
+
+NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense stars, unless the occupying unit is an air unit, in which case, it gets 0 defense stars)
 
 # Featuring :
 
