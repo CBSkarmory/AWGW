@@ -1,0 +1,12 @@
+10
+10
+Plains,Plains,Plains,Beach,Ocean,Ocean,Ocean,SeaPort_1,Plains,AirPort_1
+Road,Property_2,AirPort_2,Beach,Ocean,Ocean,Ocean,Beach,Road,Property_1
+Road,Plains,Plains,Beach,Ocean,Ocean,Ocean,Beach,Road,Plains
+Road,Plains,Plains,SeaPort_2,Ocean,Beach,Beach,Beach,Road,Plains
+Road,Plains,Plains,Beach,Ocean,Beach,Plains,River,Bridge,River
+Road,Road,Plains,Beach,Ocean,Beach,Plains,River,Road,Plains
+HQ_2,Road,Mountain,Beach,Ocean,Beach,Plains,River,Road,HQ_1
+Plains,Barracks_2,Mountain,Beach,Ocean,Ocean,Plains,River,Bridge,River
+Plains,Plains,Ocean,Ocean,Ocean,Ocean,Plains,Plains,Road,Barracks_1
+Ocean,Ocean,Ocean,Ocean,Ocean,Ocean,Plains,Plains,Road,Road
