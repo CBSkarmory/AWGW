@@ -15,13 +15,12 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
  
  - Multithreaded optimization
  
- - Cinematic 20fps
+ ok I'm half joking but it actually has these
  
-ok I'm half joking but it actually has these
+ - Variable refresh rate from GridWorld default 3, to cinematic 20 (recommended), up to your monitor's refresh rate.
+ 
 
 # Coming Soon:
-
- - fps target: this will support 20,60,120,and 144 fps. A custom target will probably be supported as well. WARNING: if your computer can't handle it, it may lag more than before. Also this won't really help responsiveness or fluidity that much.
  
  - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this.
  
