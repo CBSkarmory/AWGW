@@ -15,7 +15,7 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
  
  - Multithreaded optimization
  
- - Cinematic 20fps
+ - Cinematic 20fps (background refresh every 50ms; foreground runs at system refresh rate)
  
 ok I'm half joking but it actually has these
 
