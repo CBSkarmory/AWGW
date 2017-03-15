@@ -4,10 +4,7 @@
 	 * @author Ben Eisner 2015
 	 */
 package info.gridworld.world;
-<<<<<<< HEAD
 import cbskarmory.Runner;
-=======
->>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 import info.gridworld.actor.ActorWorld;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
@@ -43,11 +40,7 @@ public class MouseWorld extends ActorWorld {
 		while (loc == null) {
 			loc = clickedLocation;
 			try {
-<<<<<<< HEAD
 				Thread.sleep(Runner.getMsDelay());
-=======
-				Thread.sleep(50);
->>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

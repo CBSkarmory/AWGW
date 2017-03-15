@@ -4,10 +4,6 @@
 
   <groupId>cbskarmory</groupId>
   <artifactId>awgw</artifactId>
-<<<<<<< HEAD
-=======
-  <version>0.1-SNAPSHOT</version>
->>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
   <packaging>jar</packaging>
 
   <name>awgw</name>
@@ -63,8 +59,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-<<<<<<< HEAD
   <version>alpha_release_2</version>
-=======
->>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 </project>
