@@ -223,7 +223,11 @@ public class MenuMaker<T> {
 		System.out.println("methods is " + actions.size() + " size.");
 		for (int i = 0; i < actions.size(); i++) {
 			menu.add(actions.get(i));
+<<<<<<< HEAD
 //			System.out.println("added method, see line 226 of MenuMaker");
+=======
+			System.out.println("added method, see line 166 of MenuMaker");
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 		}
 		return menu;
 	}

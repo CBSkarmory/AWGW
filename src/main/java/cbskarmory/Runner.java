@@ -1,8 +1,11 @@
 package cbskarmory;
 
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+=======
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +14,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import javax.swing.ImageIcon;
+<<<<<<< HEAD
+=======
+import javax.swing.JFrame;
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 import javax.swing.JOptionPane;
 
 import cbskarmory.CO.TestCO;
@@ -25,6 +32,7 @@ import info.gridworld.world.AVWorld;
 
 public class Runner {
 	public static Player[] players;
+<<<<<<< HEAD
 	public static final int externalFPS = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
 			.getDisplayMode().getRefreshRate();;
 	private static int fpsTarget;
@@ -55,15 +63,24 @@ public class Runner {
 	}
 
 	private static int msDelay;
+=======
+
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 	public final static int MONEY_PER_PROPERTY = 200;
 	public static String pathToMapPic;
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 
 		System.out.println(
 				"Currently 1337 PLANCK_TIMEs behind! Are we on " + "5nm or is Quantum tunneling somehow an issue "
 						+ "on Skylake's 14nm? Wait a PLANCK_TIME," + " this is a Core 2 Duo!");
 		setFpsTarget(20);
+=======
+		System.out.println(
+				"Currently 1337 PLANCK_TIMEs behind! Are we on " + "5nm or is Quantum tunneling somehow an issue "
+						+ "on Skylake's 14nm? Wait a PLANCK_TIME," + " this is a Core 2 Duo!");
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 		AVWorld avw = new AVWorld();
 		Player p1 = new Player(new TestCO(), 0, new Color(255, 80, 45));
 		Player p2 = new Player(new TestCO(), 0, new Color(75, 150, 255));
@@ -92,10 +109,16 @@ public class Runner {
 		cycleTurnPlayer();
 		avw.getWorldFrame().showDirectionsPopup();
 		while (allPlayersCompeting(getCompetitivePlayers())) {
+<<<<<<< HEAD
 			avw.setMessage("Currently selected: none.\n\nUse your units to move. Click your factories to build. "
 					+ "P1 money: " + players[1].getMoney() + "(+"
 					+ players[1].getNumPropertiesOwned() * MONEY_PER_PROPERTY + ")  P2 money: " + players[2].getMoney()
 					+ "(+" + players[2].getNumPropertiesOwned() * MONEY_PER_PROPERTY + ")");
+=======
+			avw.setMessage("Currently selected: none.\n\nUse your units to move. Click your factories to build. " +
+					"P1 money: " + players[1].getMoney() + "(+"+players[1].getNumPropertiesOwned()*MONEY_PER_PROPERTY+")  P2 money: "
+			+ players[2].getMoney()+"(+"+players[2].getNumPropertiesOwned()*MONEY_PER_PROPERTY+")");
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 			avw.go();
 		}
 		avw.getWorldFrame().control.turnCycleButton.setEnabled(false);
@@ -275,7 +298,11 @@ public class Runner {
 			if (u instanceof Stealth && ((Stealth) u).isHidden()) {
 				Stealth s = (Stealth) u;
 				s.hideRender();
+<<<<<<< HEAD
 			} else if (u instanceof Stealth2 && ((Stealth2) u).isHidden()) {
+=======
+			}else if(u instanceof Stealth2 && ((Stealth2) u).isHidden()){
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 				Stealth2 s = (Stealth2) u;
 				s.hideRender();
 			}
@@ -307,7 +334,11 @@ public class Runner {
 
 		turnPlayer = next;
 		turnPlayer.getPropertiesOwned().get(0).getHostGrid().hostWorld.getWorldFrame()
+<<<<<<< HEAD
 				.setTitle("AdvanceWars GridWorld ("+Runner.fpsTarget+"hz) : player " + turnPlayer.id);
+=======
+				.setTitle("AdvanceWars GridWorld: player " + turnPlayer.id);
+>>>>>>> 792dac04c52188edbb963e38debf26dde01548a4
 		for (Property p : turnPlayer.getPropertiesOwned()) {
 			turnPlayer.setMoney(turnPlayer.getMoney() + MONEY_PER_PROPERTY);
 			if (p.getCapTimer() != p.FULL_CAP_TIMER
