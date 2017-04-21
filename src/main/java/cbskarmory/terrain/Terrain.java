@@ -85,7 +85,7 @@ public abstract class Terrain extends Location{
 	/**
 	 * @return Manhattan distance to other terrain t
 	 */
-	public int distanceTo(Terrain t){
+	public int getDistanceTo(Terrain t){
 		return Math.abs(this.getRow()-t.getRow())+Math.abs(this.getCol()-t.getCol());
 	}
 	

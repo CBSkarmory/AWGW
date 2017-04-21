@@ -74,7 +74,7 @@ public class AdvFighter extends Stealth {
 		if(null==toCheck||!MoveType.AIR.equals(toCheck.getMovementType())){
 			return false; //can't target nothing, can target Air units only
 		}
-		int dist = hypothetical.distanceTo((Terrain) toCheck.getLocation());
+		int dist = hypothetical.getDistanceTo((Terrain) toCheck.getLocation());
 		return (dist>=1&&dist<=3);
 	}
 	@Override

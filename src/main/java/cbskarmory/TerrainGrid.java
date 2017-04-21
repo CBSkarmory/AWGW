@@ -5,10 +5,12 @@ import info.gridworld.grid.Location;
 import info.gridworld.world.AVWorld;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A <code>TerrainGrid</code> is a rectangular grid with a finite number of
  * rows and columns. <br />
+ * Please only use with Terrains
  */
 public class TerrainGrid<E> extends AbstractGrid<E>
 {
@@ -18,7 +20,13 @@ public class TerrainGrid<E> extends AbstractGrid<E>
 	public Location[][] getLocationArray(){
 		return locationArray;
 	}
-
+	public ArrayList<Location> getAllLocations(){
+		ArrayList<Location> ans = new ArrayList<>();
+		for(Location[] l0:locationArray){
+			ans.addAll(new ArrayList<>(Arrays.asList(l0)));
+		}
+		return ans;
+	}
 
 
 	/**

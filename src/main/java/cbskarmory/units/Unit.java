@@ -5,12 +5,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import javax.swing.ImageIcon;
 
@@ -219,7 +221,7 @@ public abstract class Unit extends Actor{
 		if(null==toCheck||toCheck instanceof HiddenUnit){
 			return false; //can't target nothing or hidden things
 		}
-		return hypothetical.distanceTo((Terrain) toCheck.getLocation())==1;
+		return hypothetical.getDistanceTo((Terrain) toCheck.getLocation())==1;
 	}
 
 	/**
@@ -230,7 +232,6 @@ public abstract class Unit extends Actor{
 		return canTarget(u);
 	}
 	/**
-	 * Gets invoked by user in GUI
 	 *  * This Unit attacks the targeted Unit. If the target is still alive and 
 	 * can counter this unit, as determined by canCounter(Unit), it counterattacks afterwards
 	 * Precondition: ammo > 0 or has secondary weapon, target is in range 
@@ -494,7 +495,6 @@ public abstract class Unit extends Actor{
 		}
 	}
 	/**
-	 * Gets invoked in GUI by player
 	 * Precondition: the unit has enough mobility to make it to the Terrain toMoveto
 	 * Postcondition: the unit moves to the Terrain toMoveTo, traversing each terrain in a good path
 	 * @throws Exception 
@@ -601,9 +601,52 @@ public abstract class Unit extends Actor{
 		}
 	}
 
+//	@SuppressWarnings({ "unchecked", "rawtypes" })
+//	private Queue<Terrain> findpathTo_2(Terrain target) throws IllegalArgumentException{
+//		if(null==target){
+//			throw new IllegalArgumentException("target is null");
+//		}
+//		Map<Terrain, Integer> shortDistances = new HashMap<>();
+//		Map<Terrain, Terrain> previousLink = new HashMap<>();
+//		Terrain current = (Terrain) getLocation();
+//		Comparator<Terrain> comp = new Comparator<Terrain>() {
+//			/**
+//			 * Approximates which has shorter path to get to
+//			 */
+//			@Override
+//			public int compare(Terrain arg0, Terrain arg1) {
+//				int x;
+//				//heuristic will never overestimate total cost
+//				Integer c0 = ((-1==(x = calculatePathCost(arg0))?Integer.MAX_VALUE:x))+arg0.getDistanceTo(target);
+//				Integer c1 = ((-1==(x = calculatePathCost(arg1))?Integer.MAX_VALUE:x))+arg1.getDistanceTo(target);
+//				return c0.compareTo(c1);
+//			}
+//			private int calculatePathCost(Terrain t){
+//				if(!previousLink.containsKey(t)){
+//					return -1;
+//				}
+//				Terrain parent = previousLink.get(t);
+//				if(null==parent){
+//					return 0;
+//				}else{
+//					return (int) (calculatePathCost(previousLink.get(parent))+parent.getMoveCost(getMovementType()));
+//				}
+//			}
+//			
+//		};
+//		PriorityQueue<Terrain> toCheck = new PriorityQueue<>(comp);
+//		//add all tiles in range
+//		toCheck.addAll(getValidMoveSpaces());
+//		
+//		
+//		
+//		
+//	}
+	
+	
 	/**
 	 * Precondition: the unit has enough mobility to reach the Terrain that the path is being found to.
-	 * The returned path will be good if not optimal, uses A*
+	 * The returned path will be optimal, uses A*
 	 * @return a queue of Terrains that could be traversed to reach the destination
 	 * @throws Exception 
 	 */
@@ -631,12 +674,12 @@ public abstract class Unit extends Actor{
 			public int compare(Object o1, Object o2) {
 				Terrain t1 = (Terrain) o1;
 				Terrain t2 = (Terrain) o2;
-				Integer c1 = totalCost(savedPaths.get(t1))+t1.distanceTo(target);
-				Integer c2 = totalCost(savedPaths.get(t2))+t2.distanceTo(target);
+				Integer c1 = totalCost(savedPaths.get(t1))+t1.getDistanceTo(target);
+				Integer c2 = totalCost(savedPaths.get(t2))+t2.getDistanceTo(target);
 				return c1.compareTo(c2);
 			}
 		};
-		PriorityQueue<Terrain> toCheck= new PriorityQueue<Terrain>(9,comp);
+		PriorityQueue<Terrain> toCheck= new PriorityQueue<Terrain>(comp);
 		toCheck.add((Terrain) getLocation());
 		while(!toCheck.isEmpty()){
 			Terrain current = toCheck.poll();

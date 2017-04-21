@@ -32,7 +32,7 @@ public class Artillery extends Tank {
 		if(null==toCheck||MoveType.AIR.equals(toCheck.getMovementType())){
 			return false; //can't target nothing, can target sea, land
 		}
-		int dist = hypothetical.distanceTo((Terrain) toCheck.getLocation());
+		int dist = hypothetical.getDistanceTo((Terrain) toCheck.getLocation());
 		return (dist>=2&&dist<=3);
 	}
 	@Override

@@ -59,7 +59,7 @@ public class JSF extends Stealth {
 		if(null==toCheck){
 			return false; //can't target nothing
 		}
-		int dist = hypothetical.distanceTo((Terrain) toCheck.getLocation());
+		int dist = hypothetical.getDistanceTo((Terrain) toCheck.getLocation());
 		return (dist>=1&&dist<=5);
 	}
 	@Override
@@ -68,7 +68,7 @@ public class JSF extends Stealth {
 		if(null==toCheck){
 			return false; //can't target nothing
 		}
-		int dist = hypothetical.distanceTo((Terrain) toCheck.getLocation());
+		int dist = hypothetical.getDistanceTo((Terrain) toCheck.getLocation());
 		return (dist>=3&&dist<=5);
 	}
 

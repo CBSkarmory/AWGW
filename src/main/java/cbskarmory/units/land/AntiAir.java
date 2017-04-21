@@ -44,6 +44,6 @@ public class AntiAir extends Tank{
 		if(null==toCheck){
 			return false; //can't target nothing
 		}
-		return hypothetical.distanceTo((Terrain) toCheck.getLocation())==1&&!(toCheck instanceof HiddenUnit)&&!MoveType.SEA.equals(toCheck.getMovementType());
+		return hypothetical.getDistanceTo((Terrain) toCheck.getLocation())==1&&!(toCheck instanceof HiddenUnit)&&!MoveType.SEA.equals(toCheck.getMovementType());
 	}
 }
