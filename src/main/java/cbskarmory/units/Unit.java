@@ -1,6 +1,8 @@
 package cbskarmory.units;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -589,7 +591,7 @@ public abstract class Unit extends Actor{
 		return ans;
 
 	}
-
+	
 	private int totalCost(Queue<Terrain> path){
 		if(null==path||path.isEmpty()){
 			return 0;
@@ -642,7 +644,45 @@ public abstract class Unit extends Actor{
 //		
 //		
 //	}
-	
+//	private static Queue<Terrain> reverse(Queue<Terrain> q){
+//		Stack<Terrain> stack = new Stack<>();
+//		Queue<Terrain> ans = new LinkedList<>();
+//		while (!q.isEmpty()){
+//			stack.push(q.poll());
+//		}
+//		while(!stack.isEmpty()){
+//			ans.add(stack.pop());
+//		}
+//		return ans;
+//	}
+	private static Queue<Terrain> genPath(Terrain t,Map<Terrain,Terrain> parentMap)throws IllegalArgumentException{
+		if(!parentMap.containsKey(t)){
+			throw new IllegalArgumentException();
+		}
+		Queue<Terrain> ans = new LinkedList<>();
+		Terrain parent = parentMap.get(t);
+		if(parent==null){
+			//we started here, no need to move
+			return ans;
+		}else{
+			ans = genPath(parent, parentMap);
+			ans.add(t);
+			return ans;
+		}
+	}
+	private int totalCost(Terrain t,Map<Terrain,Terrain> previousLink){
+		if(!previousLink.containsKey(t)){
+			throw new IllegalStateException("terrain not mapped to parent — how did we get here?");
+		}
+		Terrain parent = previousLink.get(t);
+		if(null==parent){
+//			return (int) t.getMoveCost(getMovementType());
+			//we started here, 0
+			return 0;
+		}else{
+			return (int) (t.getMoveCost(getMovementType())+totalCost(parent,previousLink));
+		}
+	}
 	
 	/**
 	 * Precondition: the unit has enough mobility to reach the Terrain that the path is being found to.
@@ -653,8 +693,6 @@ public abstract class Unit extends Actor{
 	private Queue<Terrain> findPathTo(Terrain target) throws Exception{
 		Queue<Terrain> ans = new LinkedList<>();
 
-		//temp
-		//FIXME
 		if(null==target){
 			return new LinkedList<Terrain>();
 		}
@@ -664,7 +702,9 @@ public abstract class Unit extends Actor{
 			//you are already here
 			return ans;
 		}
-		Map<Terrain, Queue<Terrain>> savedPaths = new HashMap<>();
+//		Map<Terrain, Queue<Terrain>> savedPaths = new HashMap<>();
+		Map<Terrain, Terrain> previousLink = new HashMap<>();
+		previousLink.put((Terrain) getLocation(),null);
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		Comparator<Terrain> comp = new Comparator(){
 			@Override
@@ -674,10 +714,13 @@ public abstract class Unit extends Actor{
 			public int compare(Object o1, Object o2) {
 				Terrain t1 = (Terrain) o1;
 				Terrain t2 = (Terrain) o2;
-				Integer c1 = totalCost(savedPaths.get(t1))+t1.getDistanceTo(target);
-				Integer c2 = totalCost(savedPaths.get(t2))+t2.getDistanceTo(target);
+//				Integer c1 = totalCost(savedPaths.get(t1))+t1.getDistanceTo(target);
+//				Integer c2 = totalCost(savedPaths.get(t2))+t2.getDistanceTo(target);
+				Integer c1 = totalCost(t1,previousLink)+t1.getDistanceTo(target);
+				Integer c2 = totalCost(t2,previousLink)+t2.getDistanceTo(target);
 				return c1.compareTo(c2);
 			}
+			
 		};
 		PriorityQueue<Terrain> toCheck= new PriorityQueue<Terrain>(comp);
 		toCheck.add((Terrain) getLocation());
@@ -686,20 +729,30 @@ public abstract class Unit extends Actor{
 			for(Terrain t : current.getAllAdjacentTerrains()){
 				if(999!=t.getMoveCost(getMovementType())&&
 						(null==getGrid().get(t)||((Unit)(getGrid().get(t))).getOwner()==this.getOwner())){
-					Queue<Terrain> path = new LinkedList<Terrain>();
-					if(savedPaths.containsKey(current)){
-						path.addAll(savedPaths.get(current));
-					}
-					path.add(t);
-					if(t==target){
-						return path;
-					}
+					
 					boolean updated = false;
-					if(totalCost(path)<(savedPaths.containsKey(t)?totalCost(savedPaths.get(t)):998)){
-						savedPaths.put(t, path);
+					if(!previousLink.containsKey(t)){
+						previousLink.put(t, current);
 						updated = true;
 					}
-					if(totalCost(path)<=getMobility()&&updated){
+					
+//					Queue<Terrain> path = new LinkedList<Terrain>();
+//					if(savedPaths.containsKey(current)){
+//						path.addAll(savedPaths.get(current));
+//					}
+//					path.add(t);
+					if(t==target){
+//						return path;
+						return genPath(t,previousLink);
+					}
+					
+//					if(totalCost(path)<(savedPaths.containsKey(t)?totalCost(savedPaths.get(t)):998)){
+					if(t.getMoveCost(getMovementType())+totalCost(current,previousLink)<totalCost(t,previousLink)){
+//						savedPaths.put(t, path);
+						previousLink.put(t, current);
+						updated = true;
+					}
+					if(totalCost(t,previousLink)<=getMobility()&&updated){
 						if(!toCheck.contains(t)){
 							toCheck.add(t);
 						}
