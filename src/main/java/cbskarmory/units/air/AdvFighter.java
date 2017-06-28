@@ -11,8 +11,8 @@ import cbskarmory.weapons.WeaponType;
  * the advanced fighter is a stealth aircraft
  *Gets MISSILE (direct A2A) , ROTARY (ranged A2A)
  * Costs 3000
- *  Costs 7 fuel/turn to stay airborne, costs 5 extra when hidden (12 total /turn)
- *  Highly mobile stealth air superiority fighter with fuel issues -- seems familiar
+ *  Costs 5 fuel/turn to stay airborne, costs 5 extra when hidden (10 total /turn)
+ *  Highly mobile stealth air superiority fighter
  */
 public class AdvFighter extends Stealth {
 
@@ -33,13 +33,10 @@ public class AdvFighter extends Stealth {
 	public int getExtraDailyCost() {
 		return 5;
 	}
-	@Override
-	public int getDailyCost() {
-		return 7;
-	}
+	
 	@Override
 	public int getBuildCost() {
-		return 3000;
+		return 4000;
 	}
 
 	@Override
@@ -75,7 +72,7 @@ public class AdvFighter extends Stealth {
 			return false; //can't target nothing, can target Air units only
 		}
 		int dist = hypothetical.getDistanceTo((Terrain) toCheck.getLocation());
-		return (dist>=1&&dist<=3);
+		return (dist>=1&&dist<=5);
 	}
 	@Override
 	public boolean canCounter(Unit u) {

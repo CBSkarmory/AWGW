@@ -47,10 +47,6 @@ public abstract class Factory extends Property {
 			}else{
 				getOwner().setMoney(getOwner().getMoney()-u.getBuildCost());
 				u.putSelfInGrid(hostGrid, this);
-				//FIXME I think this is unnecessary
-//				if(null!=hostGrid&&null!=hostGrid.hostWorld){
-//					hostGrid.hostWorld.getWorldFrame().control.display.repaint();
-//				}
 			}
 			
 			
