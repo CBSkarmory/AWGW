@@ -202,17 +202,11 @@ public class GUIController<T> {
 		turnCycleButton.setEnabled(true);
 		turnCycleButton.setFocusable(false);
 		controlPanel.add(turnCycleButton);
-		// controlPanel.add(stepButton);
-		// controlPanel.add(Box.createRigidArea(spacer));
-		// controlPanel.add(runButton);
-		// controlPanel.add(Box.createRigidArea(spacer));
-		// controlPanel.add(stopButton);
 		runButton.setEnabled(false);
 		stepButton.setEnabled(false);
 		stopButton.setEnabled(false);
 
 		controlPanel.add(Box.createRigidArea(spacer));
-		// controlPanel.add(new JLabel(resources.getString("slider.gui.slow")));
 		JSlider speedSlider = new JSlider(MIN_DELAY_MSECS, MAX_DELAY_MSECS, INITIAL_DELAY);
 		speedSlider.setInverted(true);
 		speedSlider.setPreferredSize(new Dimension(100, speedSlider.getPreferredSize().height));
@@ -361,7 +355,7 @@ public class GUIController<T> {
 			} else {
 				// XXX testing
 				if (!((Unit) (occupant)).canMove()) {
-					System.out.println("line 309 GUIController, already cant move huh??");
+					System.out.println("line 364 GUIController, already cant move huh??");
 				}
 
 				MenuMaker<T> maker = new MenuMaker<T>(parentFrame, resources, displayMap);
