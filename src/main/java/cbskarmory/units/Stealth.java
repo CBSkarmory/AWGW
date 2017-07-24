@@ -14,12 +14,15 @@ public abstract class Stealth extends Air{
 	/**
 	 * calls super(Player) from child classes
 	 * don't invoke this
-	 * @param owner
+	 * @param owner owner of unit
 	 */
 	public Stealth(Player owner) {
 		super(owner);
 	}
+
 	private boolean hidden;
+    private Air hiddenUnit;
+
 	/**
 	 * Hides the stealth unit -- consumes extra daily fuel.
 	 * hides sprite by replacing self in grid
@@ -29,6 +32,8 @@ public abstract class Stealth extends Air{
 		
 		this.hidden = true;
 	}
+
+    @SuppressWarnings("Duplicates")
 	public void hideRender(){
 		Grid<Actor> gr = getGrid();
 		Terrain loc = (Terrain) getLocation();
@@ -37,7 +42,6 @@ public abstract class Stealth extends Air{
 		this.removeSelfFromGrid();
 		new HiddenUnit(owner, this).putSelfInGrid(gr, loc);		
 	}
-
 
 	/**
 	 * reveals the hidden unit -- does opposite of hide()
@@ -52,10 +56,12 @@ public abstract class Stealth extends Air{
 	public boolean isHidden(){
 		return this.hidden;
 	}
+
 	/**
 	 * @return extra amount of daily fuel the unit consumes when hidden
 	 */
 	public abstract int getExtraDailyCost();
+
 	@Override
 	public void deductDailyCost(){
 		if(this.isHidden()){
@@ -66,5 +72,4 @@ public abstract class Stealth extends Air{
 			setFuel(0);
 		}
 	}
-	private Air hiddenUnit;
 }
