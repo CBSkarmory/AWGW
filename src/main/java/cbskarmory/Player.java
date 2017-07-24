@@ -14,6 +14,7 @@ import cbskarmory.units.Unit;
  * static numberOfPlayers
  */
 public class Player {
+
 	public static int numberOfPlayers;
 	public final CO CO;
 	public final int id;
@@ -38,21 +39,24 @@ public class Player {
 		this.id = ++Player.numberOfPlayers;
 		this.CO = commandingOfficer;
 		this.teamColor = teamColor;
-		this.unitsControlled = new ArrayList<Unit>();
-		this.propertiesOwned = new ArrayList<Property>();
+		this.unitsControlled = new ArrayList<>();
+		this.propertiesOwned = new ArrayList<>();
 	}
+
 	/**
 	 * @return the player's team color
 	 */
 	public Color getTeamColor(){
 		return this.teamColor;
 	}
+
 	/**
 	 * @return the amount of money this player has
 	 */
 	public int getMoney() {
 		return this.money;
 	}
+
 	/**
 	 * @param money a positive integer to set money to
 	 * @return the amount of money that this player has after execution
@@ -66,36 +70,43 @@ public class Player {
 			return -1;
 		}
 	}
+
 	/**
 	 * @return a list of all of the units that this player controls
 	 */
 	public ArrayList<Unit> getUnitsControlled() {
 		return unitsControlled;
 	}
+
 	/**
 	 * @return the number of Units that this player controls
 	 */
 	public int getNumUnitControlled(){
 		return getUnitsControlled().size();
 	}
+
 	/**
 	 * @return a list of all of the Properties that this player owns
 	 */
 	public ArrayList<Property> getPropertiesOwned(){
 		return this.propertiesOwned;
 	}
+
 	/**
 	 * @return the number of Properties that this player controls
 	 */
 	public int getNumPropertiesOwned(){
 		return getPropertiesOwned().size();
 	}
+
 	public int getCommTowers() {
 		return commTowers;
 	}
+
 	public void setCommTowers(int commTowers) {
 		this.commTowers = commTowers;
 	}
+
 	public boolean hasHQ(){
 		for(Property prop:getPropertiesOwned()){
 			if(prop instanceof HQ){

@@ -56,12 +56,7 @@ public class PassiveFlag {
             CARRIER,
             ICBM_SUB
 	}
-//	public enum Cardinal{
-//			NORTH,
-//			EAST,
-//			SOUTH,
-//			WEST
-//	}
+
 	COFlag coFlag;
 	UnitType unitType;
 	public PassiveFlag(COFlag f) {

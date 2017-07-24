@@ -2,6 +2,7 @@ package cbskarmory.weapons;
 
 
 public final class WeaponType {
+
 	//direct fire
 	public static final String NONE = "NONE";
 	public static final String RIFLE = "RIFLE";

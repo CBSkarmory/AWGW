@@ -28,7 +28,6 @@ public class TerrainGrid<E> extends AbstractGrid<E>
 		return ans;
 	}
 
-
 	/**
 	 * Constructs an empty bounded grid with the given dimensions.
 	 * (Precondition: <code>rows > 0</code> and <code>cols > 0</code>.)

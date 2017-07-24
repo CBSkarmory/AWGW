@@ -10,11 +10,14 @@ import cbskarmory.units.Unit;
 
 
 public class Weapon {
+
 	//what unit is using the weapon
 	protected Unit weilder;
+
 	public Unit getWeilder(){
 		return weilder;
 	}
+
 	//damage values
 	public double dmgInf;
 	public double dmgArm;
