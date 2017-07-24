@@ -15,20 +15,24 @@ public interface Carry {
 	default boolean isFull(){
 		return getMaxCapacity()==getUnits().size();
 	}
+
 	/**
 	 * @return maximum number of Units this can carry
 	 */
 	default public int getMaxCapacity(){
 		return 1;
 	}
+
 	/**
 	 * @return a List of the units carried (can be empty)
 	 */
 	public ArrayList<Unit> getUnits();
+
 	/**
 	 * Refills {@link fuel} and {@link ammo} for adjacent allied {@link Unit}s
 	 */
 	public void resupply();
+
 	/**
 	 * @return whether or not this Carry has resupplying capabilities
 	 */

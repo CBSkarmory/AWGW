@@ -19,6 +19,7 @@ public abstract class Sea extends Unit{
 	public Sea(Player owner) {
 		super(owner);
 	}
+
 	@Override
 	public MoveType getMovementType() {
 		return MoveType.SEA;
