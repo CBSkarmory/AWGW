@@ -151,6 +151,7 @@ public class MenuMaker<T> {
 		display.currentLocation = loc;
 		currentLocation = loc;
 		// TODO tidy up
+		//TODO put in another method
 		StringBuilder dispMessage = new StringBuilder(50);
 		dispMessage.append(u.getInfo());
 		if (u instanceof Carry) {
@@ -206,9 +207,9 @@ public class MenuMaker<T> {
 			e.printStackTrace();
 		}
 
-		System.out.println("line 164 Menu: currentLocation set to loc\nloc is "
+		System.out.println("line 209 Menu: currentLocation set to loc\nloc is "
 				+ newLoc.getClass().getName() + "at " + newLoc);
-		System.out.println("line 165 Menu: old loc set to loc\nloc is "
+		System.out.println("line 211 Menu: old loc set to loc\nloc is "
 				+ currentLocation.getClass().getName() + "at "
 				+ currentLocation);
 		JPopupMenu menu = new JPopupMenu();
