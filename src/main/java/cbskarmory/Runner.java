@@ -44,7 +44,8 @@ public class Runner {
         if (fpsTarget > 1000 || fpsTarget < 1) {
             throw new IllegalArgumentException("fps target out of range");
         }else if(fpsTarget>Runner.externalFPS){
-            JOptionPane.showMessageDialog(null, "Error: your monitor's resolution is <"+fpsTarget+" hz","Bad FPS target",0,null);
+            JOptionPane.showMessageDialog(null, "Error: your monitor's current resolution is running at"
+                    + Runner.externalFPS + " hz , which is <" + fpsTarget + " hz","Bad FPS target",0,null);
         }else{
             Runner.fpsTarget = fpsTarget;
             Runner.msDelay = (int) Math.ceil(1000.0 / fpsTarget);
