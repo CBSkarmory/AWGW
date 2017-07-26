@@ -28,5 +28,11 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
  
  # Coming Soon<sup>tm</sup>:
  
- - AI player for the game. This way you will be able to play against the computer! coming soon<sup>tm</sup> hahah At the very latest, I will get to this once my Go AI can play on par with AlphaGo.
+ - AI player for the game. This way you will be able to play against the computer! coming soon<sup>tm</sup>
+ 
+ # GridWorld API
+ 
+ - this project uses the gridworld API, which is GPL
+ 
+ - up to 333x more responsive than the default gridworld settings! (typical improvements will be from 20x to 48x better (60hz and 144hz displays)).
  
