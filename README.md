@@ -1,4 +1,4 @@
-![Icon](/src/resources/icon.png?raw=true "AWGW Icon")
+![Icon](/src/main/resources/icon.png?raw=true "AWGW Icon")
 # AdvanceWarsGridWorld
 recreation and expansion of Advance Wars in Java with GridWorld API
 
