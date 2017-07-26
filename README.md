@@ -16,17 +16,17 @@ Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
  
  - Multithreaded optimization
  
- ok I'm half joking but it actually has these
+ ok I'm half joking but it actually has these.
  
  - Variable refresh rate, up to 333x more responsive than the default gridworld settings! (typical improvements will be from 20x to 48x better (60hz and 144hz displays)). Choose your refresh rate from 3 (Gridworld default) to 24 (cinematic?) to 144hz. Actually choose any natural number up to 1000, as long as your monitor supports it. 
  
- - Releases, early access, and DLC for $0. To get *extreme early access* versions, go [here](https://github.com/majig12346/AVGW/commits) for really old commits.
+ - Releases, early access, and DLC for $0. To get **extreme early access** versions, go [here](https://github.com/majig12346/AVGW/commits?after=cc69f5d20ade299accc20acfa9cc8f62911e4133+104) for *really* old commits.
  
 # Coming Soon:
  
- - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this.
+ - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this. If you want to know exactly, you can read the Javadoc.
  
- - cities changing color when captured: This will be implemented when I figure out how to stitch together the background on the fly, or another workaround.
+ - cities changing color when captured: This will be implemented when I get around to stitching together the background on the fly, or implementing an alternative rendering method.
  
  # Coming Soon<sup>tm</sup>:
  
