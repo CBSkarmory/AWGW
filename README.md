@@ -1,3 +1,4 @@
+![Icon](/src/resources/icon.png?raw=true "AWGW Icon")
 # AdvanceWarsGridWorld
 recreation and expansion of Advance Wars in Java with GridWorld API
 
@@ -35,6 +36,8 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
 
 ![sc1](https://user-images.githubusercontent.com/26392939/28641845-88a6c44c-721e-11e7-97a0-97f15d774ff5.PNG)
 ![sc2](https://user-images.githubusercontent.com/26392939/28641847-88b0b5ba-721e-11e7-840f-eb4929c6240f.png)
+![sc18](https://user-images.githubusercontent.com/26392939/28641863-88d651b2-721e-11e7-9103-85919a8708d0.png)
+![sc19](https://user-images.githubusercontent.com/26392939/28641865-88dae524-721e-11e7-8105-9e30d0114c64.png)
 ![sc3](https://user-images.githubusercontent.com/26392939/28641848-88b1ccd4-721e-11e7-8b0a-377c6b4ca13f.PNG)
 ![sc4](https://user-images.githubusercontent.com/26392939/28641851-88b56966-721e-11e7-929a-00d5a9e01899.png)
 ![sc5](https://user-images.githubusercontent.com/26392939/28641846-88b02cee-721e-11e7-941d-98c651976201.PNG)
@@ -50,8 +53,6 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
 ![sc15](https://user-images.githubusercontent.com/26392939/28641859-88cd4cde-721e-11e7-9c0d-ea001b858013.png)
 ![sc16](https://user-images.githubusercontent.com/26392939/28641860-88ce1ff6-721e-11e7-92b7-7a738762b6e1.png)
 ![sc17](https://user-images.githubusercontent.com/26392939/28641861-88ce8d74-721e-11e7-9860-aa8804be763d.png)
-![sc18](https://user-images.githubusercontent.com/26392939/28641863-88d651b2-721e-11e7-9103-85919a8708d0.png)
-![sc19](https://user-images.githubusercontent.com/26392939/28641865-88dae524-721e-11e7-8105-9e30d0114c64.png)
 ![sc20](https://user-images.githubusercontent.com/26392939/28641869-88e6a9cc-721e-11e7-97f9-fb2489f7aacc.png)
 ![sc21](https://user-images.githubusercontent.com/26392939/28641867-88dbc07a-721e-11e7-85fb-4f429a263c8c.png)
 ![sc22](https://user-images.githubusercontent.com/26392939/28641866-88dbb4ea-721e-11e7-8e9f-83f137fb1345.png)
