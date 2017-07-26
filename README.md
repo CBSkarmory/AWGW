@@ -17,9 +17,10 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
  
  ok I'm half joking but it actually has these
  
- - Variable refresh rate from GridWorld default 3, to cinematic 20 (recommended), up to your monitor's refresh rate.
+ - Variable refresh rate, up to 333x more responsive than the default gridworld settings! (typical improvements will be from 20x to 48x better (60hz and 144hz displays)). Choose your refresh rate from 3 (Gridworld default) to 24 (cinematic?) to 144hz. Actually choose any natural number up to 1000, as long as your monitor supports it. 
  
-
+ - Releases, early access, and DLC for $0. To get *extreme early access* versions, go [here](https://github.com/majig12346/AVGW/commits) for really old commits.
+ 
 # Coming Soon:
  
  - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this.
@@ -28,5 +29,4 @@ NOT IN IN-GAME DIRECTIONS: hover a tile to see its applied defense (ie defense s
  
  # Coming Soon<sup>tm</sup>:
  
- - AI player for the game. This way you will be able to play against the computer! coming soon<sup>tm</sup> hahah At the very latest, I will get to this once my Go AI can play on par with AlphaGo.
- 
+ - AI player for the game. This way you will be able to play against the computer! coming soon<sup>tm</sup>

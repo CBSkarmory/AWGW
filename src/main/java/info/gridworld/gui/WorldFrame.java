@@ -482,7 +482,7 @@ public class WorldFrame<T> extends JFrame {
 		fpsComboBox.addItem("[select target refresh rate]");
 		fpsComboBox.addItem("3 hz (GridWorld default)");
 		fpsComboBox.addItem("10 hz");
-		fpsComboBox.addItem("20 hz (default)");
+		fpsComboBox.addItem("24 hz (cinematic)");
 		fpsComboBox.addItem("60 hz");
 		fpsComboBox.addItem("120 hz");
 		fpsComboBox.addItem("144 hz");
