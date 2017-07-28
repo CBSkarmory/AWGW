@@ -24,7 +24,7 @@ Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
  
 # Coming Soon:
  
- - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this. If you want to know exactly, you can read the Javadoc.
+ - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this. If you want to know exactly, you can read the source (documentation inside). `src/main/java/cbskarmory/units/`, and the .properties files in `src/main/resources/resources/` will be very helpful.
  
  - cities changing color when captured: This will be implemented when I get around to stitching together the background on the fly, or implementing an alternative rendering method.
  
