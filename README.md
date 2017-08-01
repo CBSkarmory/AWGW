@@ -1,5 +1,5 @@
-![Icon](/src/main/resources/resources/icon.png?raw=true "AWGW Icon")
-# AdvanceWarsGridWorld
+AdvanceWarsGridWorld ![Icon](/src/main/resources/resources/icon.png?raw=true "AWGW Icon")
+======================
 recreation and expansion of Advance Wars in Java with GridWorld API
 
 With 7 new Units!
@@ -10,7 +10,7 @@ Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
 
 **NOT IN IN-GAME DIRECTIONS**: hover a tile to see its applied defense (ie defense stars, unless the occupying unit is an air unit, in which case, it gets 0 defense stars)
 
-# Featuring :
+## Featuring :
 
  - Immersive screenshake
  
@@ -22,17 +22,17 @@ Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
  
  - Releases, early access, and DLC for $0. To get **extreme early access** versions, go [here](https://github.com/majig12346/AVGW/commits?after=cc69f5d20ade299accc20acfa9cc8f62911e4133+104) for *really* old commits.
  
-# Coming Soon:
+## Coming Soon:
  
  - descriptions for new (custom added) units: I mean, you can kinda guess what they do at the moment, but I will release this. If you want to know exactly, you can read the source (documentation inside). `src/main/java/cbskarmory/units/`, and the .properties files in `src/main/resources/resources/` will be very helpful.
  
  - cities changing color when captured: This will be implemented when I get around to stitching together the background on the fly, or implementing an alternative rendering method.
  
- # Coming Soon<sup>tm</sup>:
+ ## Coming Soon<sup>tm</sup>:
  
  - AI player for the game. This way you will be able to play against the computer! coming soon<sup>tm</sup>
  
- # Screenshots:
+ ## Screenshots:
 
 ![sc1](https://user-images.githubusercontent.com/26392939/28641845-88a6c44c-721e-11e7-97a0-97f15d774ff5.PNG)
 ![sc2](https://user-images.githubusercontent.com/26392939/28641847-88b0b5ba-721e-11e7-840f-eb4929c6240f.png)
