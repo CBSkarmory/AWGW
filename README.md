@@ -32,6 +32,12 @@ Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
  
  - AI player for the game. This way you will be able to play against the computer! coming soon<sup>tm</sup>
  
+ ## License
+ 
+ - This project modifies GridWorld code, © 2005-2006 Cay S. Horstmann, which is also licensed under GPL. 
+ 
+ - Advance Wars is © 1990-2001 Nintendo and © 2001 Intelligent Systems. All original materials are copyrighted by their respective owners and no copyright infringement is intended.
+ 
  ## Screenshots:
 
 ![sc1](https://user-images.githubusercontent.com/26392939/28641845-88a6c44c-721e-11e7-97a0-97f15d774ff5.PNG)
