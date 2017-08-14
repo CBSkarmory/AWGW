@@ -37,7 +37,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -71,7 +70,6 @@ import javax.swing.event.HyperlinkListener;
 
 import cbskarmory.Runner;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -131,7 +129,7 @@ public class WorldFrame<T> extends JFrame {
 		setLocation(25, 15);
 
 		// URL appIconUrl = getClass().getResource("GridWorld.gif");
-		URL appIconUrl = Runner.class.getClassLoader().getResource("resources/icon.png");
+		URL appIconUrl = Runner.class.getClassLoader().getResource("icon.png");
 		ImageIcon appIcon = new ImageIcon(appIconUrl);
 		setIconImage(appIcon.getImage());
 
@@ -411,7 +409,7 @@ public class WorldFrame<T> extends JFrame {
 
 		mbar.add(menu = makeMenu("menu.help"));
 		JMenuItem dispDirections = new JMenuItem();
-		ImageIcon dirIco = MenuMaker.get16xIcon(getClass().getClassLoader().getResource("resources/32x/intel.png"));
+		ImageIcon dirIco = MenuMaker.get16xIcon(getClass().getClassLoader().getResource("32x/intel.png"));
 		dispDirections.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				showDirectionsPopup();
@@ -535,7 +533,7 @@ public class WorldFrame<T> extends JFrame {
 	}
 
 	public void showDirectionsPopup() {
-		ImageIcon ico = MenuMaker.get16xIcon(getClass().getClassLoader().getResource("resources/32x/intel.png"));
+		ImageIcon ico = MenuMaker.get16xIcon(getClass().getClassLoader().getResource("32x/intel.png"));
 		JButton[] options = new JButton[2];
 		JButton nahButton = GUIController.generateOkayButton(null, display);
 		nahButton.setText("I already know how to play");

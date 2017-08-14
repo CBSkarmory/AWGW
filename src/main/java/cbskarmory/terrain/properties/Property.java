@@ -3,7 +3,6 @@ package cbskarmory.terrain.properties;
 import info.gridworld.actor.Actor;
 import info.gridworld.gui.GridPanel;
 import info.gridworld.gui.MenuMaker;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,7 +10,6 @@ import java.util.Set;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 import cbskarmory.Player;
 import cbskarmory.TerrainGrid;
@@ -21,7 +19,6 @@ import cbskarmory.units.Air;
 import cbskarmory.units.Sea;
 import cbskarmory.units.Unit;
 import cbskarmory.units.land.Infantry;
-import cbskarmory.weapons.Weapon;
 
 /**
  * Property represents all capturable Terrains Instantiated, it is a plain city.
@@ -109,7 +106,7 @@ public class Property extends Terrain {
             MenuMaker.noBugsPls(hostGrid.hostWorld.getWorldFrame().control.display, hostGrid);
             JOptionPane.showMessageDialog(hostGrid.hostWorld.getWorldFrame(),
                     this.getClass().getSimpleName() + " at " + this + " captured\n\tby: Player " + getOwner().id, "Poperty Captured!", 0,
-                    new ImageIcon(Property.class.getClassLoader().getResource("resources/32x/capture.png")));
+                    new ImageIcon(Property.class.getClassLoader().getResource("32x/capture.png")));
         }
     }
 
@@ -131,7 +128,7 @@ public class Property extends Terrain {
                     @Override
                     public void run() {
                         ImageIcon supplyIco = new ImageIcon(this.getClass().getClassLoader().getResource(
-                                "resources/32x/supply.png"));
+                                "32x/supply.png"));
                         for (int x = 0; x < 4; x++) {
                             display.showIconsOnSetOfLocations(supplyIco.getImage(), where);
                             try {

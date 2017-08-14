@@ -20,7 +20,6 @@ package info.gridworld.gui;
 
 import info.gridworld.grid.*;
 import info.gridworld.world.World;
-import sun.rmi.runtime.NewThreadAction;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -279,7 +278,7 @@ public class GUIController<T> {
 	}
 	private JButton makeTurnCycleButton() {
 		JButton tcButton = new JButton();
-		URL tcpIcoLoc = getClass().getClassLoader().getResource("resources/32x/endTurn.png");
+		URL tcpIcoLoc = getClass().getClassLoader().getResource("32x/endTurn.png");
 		ImageIcon tcIco = MenuMaker.get16xIcon(tcpIcoLoc);
 		ActionListener turnCycleActionL = new ActionListener() {
 			@Override
@@ -292,11 +291,11 @@ public class GUIController<T> {
 					}
 				});
 				JButton[] options = new JButton[2];
-				cancelButton.setIcon(MenuMaker.get16xIcon(GUIController.class.getClassLoader().getResource("resources/32x/cancel.png")));
+				cancelButton.setIcon(MenuMaker.get16xIcon(GUIController.class.getClassLoader().getResource("32x/cancel.png")));
 
 				cancelButton.setText("cancel");
 				options[0] = generateOkayButton(MenuMaker.get16xIcon(GUIController.class.getClassLoader().getResource
-						("resources/32x/endTurn.png")),display,true);
+						("32x/endTurn.png")),display,true);
 				options[1] = cancelButton;
 				JOptionPane.showOptionDialog(display.avw.getWorldFrame(), "Proceeding to Player " +Runner.getNextTurnPlayer().id+"'s turn...", 
 						"Turn ended", 0, 0, tcIco, options, 1);

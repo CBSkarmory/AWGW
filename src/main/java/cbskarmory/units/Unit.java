@@ -148,7 +148,7 @@ public abstract class Unit extends Actor {
     }
 
     public UnitType getUnitType() {
-        ResourceBundle b = ResourceBundle.getBundle("resources/unit_to_unit_type");
+        ResourceBundle b = ResourceBundle.getBundle("unit_to_unit_type");
         return UnitType.valueOf(b.getString(getType()));
     }
 
@@ -177,8 +177,8 @@ public abstract class Unit extends Actor {
     protected void selfDestruct(boolean... showNoFuelIcon) {
         //TODO animation
 
-        URL fireIconLocation = this.getClass().getClassLoader().getResource("resources/32x/fire.png");
-        URL noFuelIconLocation = this.getClass().getClassLoader().getResource("resources/32x/noFuel.png");
+        URL fireIconLocation = this.getClass().getClassLoader().getResource("32x/fire.png");
+        URL noFuelIconLocation = this.getClass().getClassLoader().getResource("32x/noFuel.png");
         Set<Terrain> where = new HashSet<Terrain>();
         where.add((Terrain) getLocation());
         try {
@@ -415,7 +415,7 @@ public abstract class Unit extends Actor {
      * @return maximum mobility value for the unit
      */
     private double loadMaxMobility() {
-        ResourceBundle b = ResourceBundle.getBundle("resources/unit_move");
+        ResourceBundle b = ResourceBundle.getBundle("unit_move");
         return (double) ((int) (Double.parseDouble(b.getString(getType())) + 0.5));
     }
 
@@ -431,7 +431,7 @@ public abstract class Unit extends Actor {
             Unit cont = (me).getContainedUnit();
             return (cont.loadDailyCost());
         }
-        ResourceBundle b = ResourceBundle.getBundle("resources/unit_daily_fuel");
+        ResourceBundle b = ResourceBundle.getBundle("unit_daily_fuel");
         try {
             double ans = Double.parseDouble(b.getString(getType()));
             return (int) (this.owner.CO.passive(ans, COFlag.DAILY_COST, getUnitType()));

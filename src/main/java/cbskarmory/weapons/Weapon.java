@@ -34,7 +34,7 @@ public class Weapon {
 	
 	//load damage values
 	protected double[] loadDmgValues(){
-		ResourceBundle b = ResourceBundle.getBundle("resources/weapon_dmg");
+		ResourceBundle b = ResourceBundle.getBundle("weapon_dmg");
 		String[] tmp = b.getString(weaponType).split(",");
 		double[] ans = new double[tmp.length];
 		for (int i = 0; i<tmp.length;i++){

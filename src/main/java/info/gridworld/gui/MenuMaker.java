@@ -18,7 +18,6 @@ package info.gridworld.gui;
 
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
-import info.gridworld.world.AVWorld;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -298,7 +297,7 @@ public class MenuMaker<T> {
 				};
 				a.setEnabled(true);
 				waitOption.setAction(a);
-				URL imagePath = this.getClass().getClassLoader().getResource("resources/32x/wait.png");
+				URL imagePath = this.getClass().getClassLoader().getResource("32x/wait.png");
 				waitOption.setIcon(get16xIcon(imagePath));
 				waitOption.setText("Wait");
 				ans.add(waitOption);
@@ -395,7 +394,7 @@ public class MenuMaker<T> {
 						tmpDropOption.setAction(tmpDropAction);
 						tmpDropOption.setText("Drop: " + carried.getType());
 						tmpDropOption.setIcon(get16xIcon(this.getClass().getClassLoader().getResource(
-								"resources/units/"+carried.getType()+".png")));
+								"units/" +carried.getType()+".png")));
 						ans.add(tmpDropOption);
 					}
 				}
@@ -450,7 +449,7 @@ public class MenuMaker<T> {
 										u.fire(targetedUnit);
 										display.paintImmediately(display.getBounds());
 										URL fireIconLocation = this.getClass().getClassLoader().getResource(
-												"resources/32x/fire.png");
+                                                "32x/fire.png");
 										Set<Terrain> where = new HashSet<Terrain>();
 										where.add((Terrain) targetLocation);
 										if(targetedUnit.getHealth()>0&&u.getHealth()>0&&targetedUnit.canCounter(u)){
@@ -513,7 +512,7 @@ public class MenuMaker<T> {
 					fireOption.setAction(fireAction);
 					fireOption.setText("Fire");
 					fireOption.setIcon(get16xIcon(this.getClass().getClassLoader().getResource(
-							"resources/32x/fire.png")));
+                            "32x/fire.png")));
 					ans.add(fireOption);
 
 
@@ -537,7 +536,7 @@ public class MenuMaker<T> {
 				if(!adjacentAlliedUnits.isEmpty()){
 					JMenuItem resupplyOption = new JMenuItem();
 					URL supplyPicLocation = this.getClass().getClassLoader().getResource(
-							"resources/32x/supply.png");
+                            "32x/supply.png");
 					ImageIcon supplyIcon = get16xIcon(supplyPicLocation);
 					ImageIcon bigSupplyIcon = new ImageIcon(supplyPicLocation);
 					Action resupplyAction = new Action() {
@@ -608,8 +607,8 @@ public class MenuMaker<T> {
 				Stealth s = (Stealth) u;
 				{
 					JMenuItem hidingOption = new JMenuItem();
-					ImageIcon hideIco = get16xIcon(MenuMaker.class.getClassLoader().getResource("resources/32x/hide.png"));
-					ImageIcon hidePic = new ImageIcon(MenuMaker.class.getClassLoader().getResource("resources/32x/poof.png"));
+					ImageIcon hideIco = get16xIcon(MenuMaker.class.getClassLoader().getResource("32x/hide.png"));
+					ImageIcon hidePic = new ImageIcon(MenuMaker.class.getClassLoader().getResource("32x/poof.png"));
 					Action hidingAction = new Action(){
 						public boolean enabled = true;
 						@Override
@@ -683,8 +682,8 @@ public class MenuMaker<T> {
 				Stealth2 s = (Stealth2) u;
 				{
 					JMenuItem hidingOption = new JMenuItem();
-					ImageIcon hideIco = get16xIcon(MenuMaker.class.getClassLoader().getResource("resources/32x/hide.png"));
-					ImageIcon hidePic = new ImageIcon(MenuMaker.class.getClassLoader().getResource("resources/32x/poof.png"));
+					ImageIcon hideIco = get16xIcon(MenuMaker.class.getClassLoader().getResource("32x/hide.png"));
+					ImageIcon hidePic = new ImageIcon(MenuMaker.class.getClassLoader().getResource("32x/poof.png"));
 					Action hidingAction = new Action(){
 						public boolean enabled = true;
 						@Override
@@ -757,7 +756,7 @@ public class MenuMaker<T> {
 								e.printStackTrace();
 							}
 							i.capture();
-							URL flagIconLoc = MenuMaker.class.getClassLoader().getResource("resources/32x/capture.png");
+							URL flagIconLoc = MenuMaker.class.getClassLoader().getResource("32x/capture.png");
 							ImageIcon flagIco = new ImageIcon(flagIconLoc);
 							new Thread(new Runnable() {
 
@@ -810,7 +809,7 @@ public class MenuMaker<T> {
 						}
 					};
 					captureOption.setAction(captureAction);
-					URL capImagePath = this.getClass().getClassLoader().getResource("resources/32x/capture.png");
+					URL capImagePath = this.getClass().getClassLoader().getResource("32x/capture.png");
 					captureOption.setIcon(get16xIcon(capImagePath));
 					captureOption.setText("Capture");
 					ans.add(captureOption);
@@ -870,7 +869,7 @@ public class MenuMaker<T> {
 						PropertyChangeListener listener) {}
 			};
 			loadOption.setAction(loadAction);
-			URL imagePath = this.getClass().getClassLoader().getResource("resources/32x/load.png");
+			URL imagePath = this.getClass().getClassLoader().getResource("32x/load.png");
 			loadOption.setIcon(get16xIcon(imagePath));
 			loadOption.setText("Load");
 			ans.add(loadOption);
@@ -881,7 +880,7 @@ public class MenuMaker<T> {
 		//always a cancel option if anything else is do able
 		if(!ans.isEmpty()){
 			JMenuItem cancelOption = new JMenuItem("cancel",
-					get16xIcon(this.getClass().getClassLoader().getResource("resources/32x/cancel.png")));
+					get16xIcon(this.getClass().getClassLoader().getResource("32x/cancel.png")));
 			ans.add(cancelOption);
 		}
 		return ans;
@@ -1032,7 +1031,7 @@ public class MenuMaker<T> {
 				// TODO nicer naming, picture
 				tmp.setText(name);
 				URL imagePath = this.getClass().getClassLoader().getResource(
-						"resources/units/"+constructor.getDeclaringClass().getSimpleName()+".png");
+						"units/" +constructor.getDeclaringClass().getSimpleName()+".png");
 				tmp.setIcon(get16xIcon(imagePath));
 				menu.add(tmp);
 			}

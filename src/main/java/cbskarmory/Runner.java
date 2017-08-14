@@ -81,15 +81,15 @@ public class Runner {
         }
         if (selection == 1) {
             g = new TerrainGrid<Actor>(24, 24);
-            fillTerrainGrid(g, "resources/maps/map2.dat");
-            pathToMapPic = "resources/maps/Map_2.png";
+            fillTerrainGrid(g, "maps/map2.dat");
+            pathToMapPic = "maps/Map_2.png";
             minFill2(g, p1, p2);
             renderAVW(avw, g);
             avw.getWorldFrame().control.display.zoomIn();
         } else if (selection == 0) {
-            pathToMapPic = "resources/maps/Map_1.gif";
+            pathToMapPic = "maps/Map_1.gif";
             g = new TerrainGrid<Actor>(10, 10);
-            fillTerrainGrid(g, "resources/maps/map1.dat");
+            fillTerrainGrid(g, "maps/map1.dat");
             minFill1(g, p1, p2);
             renderAVW(avw, g);
         } else if (selection == -1) {
@@ -111,7 +111,7 @@ public class Runner {
         String victoryDiag = victoryDiag();
         avw.setMessage(victoryDiag);
         JOptionPane.showMessageDialog(avw.getWorldFrame(), (victoryDiag), "Game Over", 0,
-                new ImageIcon(Runner.class.getClassLoader().getResource("resources/victory.png")));
+                new ImageIcon(Runner.class.getClassLoader().getResource("victory.png")));
     }
 
     public static void renderAVW(AVWorld avw, TerrainGrid<Actor> g) {
@@ -127,7 +127,7 @@ public class Runner {
     }
 
     private static ImageIcon getMainIcon() {
-        URL icoLoc = Runner.class.getClassLoader().getResource("resources/icon.png");
+        URL icoLoc = Runner.class.getClassLoader().getResource("icon.png");
         return new ImageIcon(icoLoc);
     }
 
