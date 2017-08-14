@@ -1,9 +1,8 @@
 AdvanceWarsGridWorld ![Icon](/src/main/resources/resources/icon.png?raw=true "AWGW Icon")
 ======================
 
-for older commits, see [majig12346/AVGW](https://github.com/majig12346/AVGW)
+*for older commits, see [majig12346/AVGW](https://github.com/majig12346/AVGW)*
 
-----------------------
 recreation and expansion of Advance Wars in Java with GridWorld API
 
 With 7 new Units!
