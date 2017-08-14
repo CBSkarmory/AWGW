@@ -1,6 +1,7 @@
-/* 
+/*
  * AP(r) Computer Science GridWorld Case Study:
  * Copyright(c) 2005-2006 Cay S. Horstmann (http://horstmann.com)
+ * Modified by CBSkarmory 2017 (https://github.com/CBSkarmory)
  *
  * This code is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,6 +13,7 @@
  * GNU General Public License for more details.
  * 
  * @author Cay Horstmann
+ * @author CBSkarmory
  */
 
 package info.gridworld.world;
@@ -29,13 +31,11 @@ import java.util.TreeSet;
 import javax.swing.JFrame;
 
 /**
- * 
  * A <code>World</code> is the mediator between a grid and the GridWorld GUI.
  * <br />
  * This class is not tested on the AP CS A and AB exams.
  */
-public class World<T>
-{
+public class World<T> {
     protected Grid<T> gr;
     private Set<String> occupantClassNames;
     private Set<String> gridClassNames;
@@ -47,17 +47,15 @@ public class World<T>
     private static final int DEFAULT_ROWS = 10;
     private static final int DEFAULT_COLS = 10;
 
-    public World()
-    {
+    public World() {
         this(new BoundedGrid<T>(DEFAULT_ROWS, DEFAULT_COLS));
         message = null;
     }
 
-    public World(Grid<T> g)
-    {
+    public World(Grid<T> g) {
         gr = g;
-        gridClassNames = new TreeSet<String>();
-        occupantClassNames = new TreeSet<String>();
+        gridClassNames = new TreeSet<>();
+        occupantClassNames = new TreeSet<>();
         addGridClass("info.gridworld.grid.BoundedGrid");
         addGridClass("info.gridworld.grid.UnboundedGrid");
     }
@@ -65,53 +63,50 @@ public class World<T>
     /**
      * Constructs and shows a frame for this world.
      */
-    public void show()
-    {
-        if (frame == null)
-        {
+    public void show() {
+        if (frame == null) {
             frame = new WorldFrame<T>(this);
             frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             frame.setVisible(true);
-        }
-        else
+        } else
             frame.repaint();
     }
 
     /**
      * Gets the grid managed by this world.
+     *
      * @return the grid
      */
-    public Grid<T> getGrid()
-    {
+    public Grid<T> getGrid() {
         return gr;
     }
 
     /**
      * Sets the grid managed by this world.
+     *
      * @param newGrid the new grid
      */
-    public void setGrid(Grid<T> newGrid)
-    {
+    public void setGrid(Grid<T> newGrid) {
         gr = newGrid;
         repaint();
     }
 
     /**
      * Sets the message to be displayed in the world frame above the grid.
+     *
      * @param newMessage the new message
      */
-    public void setMessage(String newMessage)
-    {
+    public void setMessage(String newMessage) {
         message = newMessage;
         repaint();
     }
 
     /**
      * Gets the message to be displayed in the world frame above the grid.
+     *
      * @return the message
      */
-    public String getMessage()
-    {
+    public String getMessage() {
         return message;
     }
 
@@ -119,45 +114,43 @@ public class World<T>
      * This method is called when the user clicks on the step button, or when
      * run mode has been activated by clicking the run button.
      */
-    public void step()
-    {
+    public void step() {
         repaint();
     }
 
     /**
      * This method is called when the user clicks on a location in the
      * WorldFrame.
-     * 
+     *
      * @param loc the grid location that the user selected
      * @return true if the world consumes the click, or false if the GUI should
      * invoke the Location->Edit menu action
      */
-    public boolean locationClicked(Location loc)
-    {
+    public boolean locationClicked(Location loc) {
         return false;
     }
-    
+
     /**
      * This method is called when a key was pressed. Override it if your world wants
      * to consume some keys (e.g. "1"-"9" for Sudoku). Don't consume plain arrow keys,
-     * or the user loses the ability to move the selection square with the keyboard.   
-     * @param description the string describing the key, in 
-     * <a href="http://java.sun.com/javase/6/docs/api/javax/swing/KeyStroke.html#getKeyStroke(java.lang.String)">this format</a>. 
-     * @param loc the selected location in the grid at the time the key was pressed
+     * or the user loses the ability to move the selection square with the keyboard.
+     *
+     * @param description the string describing the key, in
+     *                    <a href="http://java.sun.com/javase/6/docs/api/javax/swing/KeyStroke.html#getKeyStroke(java.lang.String)">this format</a>.
+     * @param loc         the selected location in the grid at the time the key was pressed
      * @return true if the world consumes the key press, false if the GUI should
      * consume it.
      */
-    public boolean keyPressed(String description, Location loc)
-    {
+    public boolean keyPressed(String description, Location loc) {
         return false;
     }
 
     /**
      * Gets a random empty location in this world.
+     *
      * @return a random empty location
      */
-    public Location getRandomEmptyLocation()
-    {
+    public Location getRandomEmptyLocation() {
         Grid<T> gr = getGrid();
         int rows = gr.getNumRows();
         int cols = gr.getNumCols();
@@ -165,10 +158,9 @@ public class World<T>
         if (rows > 0 && cols > 0) // bounded grid
         {
             // get all valid empty locations and pick one at random
-            ArrayList<Location> emptyLocs = new ArrayList<Location>();
+            ArrayList<Location> emptyLocs = new ArrayList<>();
             for (int i = 0; i < rows; i++)
-                for (int j = 0; j < cols; j++)
-                {
+                for (int j = 0; j < cols; j++) {
                     Location loc = new Location(i, j);
                     if (gr.isValid(loc) && gr.get(loc) == null)
                         emptyLocs.add(loc);
@@ -177,12 +169,9 @@ public class World<T>
                 return null;
             int r = generator.nextInt(emptyLocs.size());
             return emptyLocs.get(r);
-        }
-        else
-        // unbounded grid
-        {
-            while (true)
-            {
+        } else {
+            // unbounded grid
+            while (true) {
                 // keep generating a random location until an empty one is found
                 int r;
                 if (rows < 0)
@@ -203,22 +192,22 @@ public class World<T>
 
     /**
      * Adds an occupant at a given location.
-     * @param loc the location
+     *
+     * @param loc      the location
      * @param occupant the occupant to add
      */
-    public void add(Location loc, T occupant)
-    {
+    public void add(Location loc, T occupant) {
         getGrid().put(loc, occupant);
         repaint();
     }
 
     /**
      * Removes an occupant from a given location.
+     *
      * @param loc the location
      * @return the removed occupant, or null if the location was empty
      */
-    public T remove(Location loc)
-    {
+    public T remove(Location loc) {
         T r = getGrid().remove(loc);
         repaint();
         return r;
@@ -226,44 +215,43 @@ public class World<T>
 
     /**
      * Adds a class to be shown in the "Set grid" menu.
+     *
      * @param className the name of the grid class
      */
-    public void addGridClass(String className)
-    {
+    public void addGridClass(String className) {
         gridClassNames.add(className);
     }
 
     /**
      * Adds a class to be shown when clicking on an empty location.
+     *
      * @param className the name of the occupant class
      */
-    public void addOccupantClass(String className)
-    {
+    public void addOccupantClass(String className) {
         occupantClassNames.add(className);
     }
 
     /**
      * Gets a set of grid classes that should be used by the world frame for
      * this world.
+     *
      * @return the set of grid class names
      */
-    public Set<String> getGridClasses()
-    {
+    public Set<String> getGridClasses() {
         return gridClassNames;
     }
 
     /**
      * Gets a set of occupant classes that should be used by the world frame for
      * this world.
+     *
      * @return the set of occupant class names
      */
-    public Set<String> getOccupantClasses()
-    {
+    public Set<String> getOccupantClasses() {
         return occupantClassNames;
     }
 
-    private void repaint()
-    {
+    private void repaint() {
         if (frame != null)
             frame.repaint();
     }
@@ -271,9 +259,8 @@ public class World<T>
     /**
      * Returns a string that shows the positions of the grid occupants.
      */
-    public String toString()
-    {
-        String s = "";
+    public String toString() {
+        StringBuilder tmpSB = new StringBuilder("");
         Grid<?> gr = getGrid();
 
         int rmin = 0;
@@ -282,8 +269,7 @@ public class World<T>
         int cmax = gr.getNumCols() - 1;
         if (rmax < 0 || cmax < 0) // unbounded grid
         {
-            for (Location loc : gr.getOccupiedLocations())
-            {
+            for (Location loc : gr.getOccupiedLocations()) {
                 int r = loc.getRow();
                 int c = loc.getCol();
                 if (r < rmin)
@@ -297,18 +283,17 @@ public class World<T>
             }
         }
 
-        for (int i = rmin; i <= rmax; i++)
-        {
-            for (int j = cmin; j < cmax; j++)
-            {
+        for (int i = rmin; i <= rmax; i++) {
+            for (int j = cmin; j < cmax; j++) {
                 Object obj = gr.get(new Location(i, j));
-                if (obj == null)
-                    s += " ";
-                else
-                    s += obj.toString().substring(0, 1);
+                if (obj == null) {
+                    tmpSB.append(" ");
+                } else {
+                    tmpSB.append(obj.toString().substring(0, 1));
+                }
             }
-            s += "\n";
+            tmpSB.append("\n");
         }
-        return s;
+        return tmpSB.toString();
     }
 }

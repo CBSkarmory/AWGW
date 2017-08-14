@@ -57,8 +57,8 @@ public class LocationEditor extends PropertyEditorSupport
     public void setValue(Object newValue)
     {
         Location loc = (Location) newValue;
-        rowField.setValue(new Integer(loc.getRow()));
-        colField.setValue(new Integer(loc.getCol()));
+        rowField.setValue(loc.getRow());
+        colField.setValue(loc.getCol());
     }
 
     public boolean supportsCustomEditor()
