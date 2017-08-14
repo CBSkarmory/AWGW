@@ -1,5 +1,9 @@
 AdvanceWarsGridWorld ![Icon](/src/main/resources/resources/icon.png?raw=true "AWGW Icon")
 ======================
+
+for older commits, see [majig12346/AVGW](https://github.com/majig12346/AVGW)
+
+----------------------
 recreation and expansion of Advance Wars in Java with GridWorld API
 
 With 7 new Units!
@@ -20,7 +24,7 @@ Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
  
  - Variable refresh rate, up to 333x more responsive than the default gridworld settings! (typical improvements will be from 20x to 48x better (60hz and 144hz displays)). Choose your refresh rate from 3 (Gridworld default) to 24 (cinematic?) to 144hz. Actually choose any natural number up to 1000, as long as your monitor supports it. 
  
- - Releases, early access, and DLC for $0. To get **extreme early access** versions, go [here](https://github.com/majig12346/AVGW/commits?after=cc69f5d20ade299accc20acfa9cc8f62911e4133+104) for *really* old commits.
+ - Releases, early access, and DLC for $0. To get **extreme early access** versions, go [here](https://github.com/majig12346/AVGW/commits?after=cc69f5d20ade299accc20acfa9cc8f62911e4133+104).
  
 ## Coming Soon:
  
