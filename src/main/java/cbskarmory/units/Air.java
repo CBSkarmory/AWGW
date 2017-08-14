@@ -11,24 +11,25 @@ import cbskarmory.PassiveFlag.MoveType;
  */
 public abstract class Air extends Unit {
 
-	/**
-	 * calls super(Player) from child classes
-	 * don't invoke this
-	 * @param owner
-	 */
-	public Air(Player owner) {
-		super(owner);
-	}
+    /**
+     * calls super(Player) from child classes
+     * don't invoke this
+     *
+     * @param owner owner of unit
+     */
+    public Air(Player owner) {
+        super(owner);
+    }
 
-	@Override
-	public void outOfFuel() {
-		//TODO crash animation
-		this.selfDestruct(true);
-	}
+    @Override
+    public void outOfFuel() {
+        //TODO crash animation
+        this.selfDestruct(true);
+    }
 
-	@Override
-	public MoveType getMovementType() {
-		return MoveType.AIR;
-	}
+    @Override
+    public MoveType getMovementType() {
+        return MoveType.AIR;
+    }
 
 }

@@ -15,29 +15,32 @@ import cbskarmory.weapons.WeaponType;
  */
 public class MedTank extends Tank {
 
-	/**
-	 * Constructs a Medium Tank
-	 * sets primary weapon to HEAT, secondary to MG
-	 * @param owner owner of the Unit
-	 */
-	public MedTank(Player owner) {
-		super(owner);
-		setWeapon(0, WeaponType.HEAT);
-		setWeapon(1, WeaponType.MG);
-	}
-	@Override
-	public int getBuildCost() {
-		return 1400;
-	}
+    /**
+     * Constructs a Medium Tank
+     * sets primary weapon to HEAT, secondary to MG
+     *
+     * @param owner owner of the Unit
+     */
+    public MedTank(Player owner) {
+        super(owner);
+        setWeapon(0, WeaponType.HEAT);
+        setWeapon(1, WeaponType.MG);
+    }
 
-	@Override
-	public double getBaseArmorResistance() {
-		//25% resistance
-		return 0.75;
-	}
-	@Override
-	public boolean couldTarget(Unit toCheck, Terrain hypothetical) { //cannot target jet fighters
-		return super.couldTarget(toCheck, hypothetical)&&!toCheck.isJet();
-	}
-	
+    @Override
+    public int getBuildCost() {
+        return 1400;
+    }
+
+    @Override
+    public double getBaseArmorResistance() {
+        //25% resistance
+        return 0.75;
+    }
+
+    @Override
+    public boolean couldTarget(Unit toCheck, Terrain hypothetical) { //cannot target jet fighters
+        return super.couldTarget(toCheck, hypothetical) && !toCheck.isJet();
+    }
+
 }

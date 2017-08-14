@@ -17,64 +17,68 @@ import cbskarmory.weapons.WeaponType;
  */
 public class DropShip extends Air implements Carry {
 
-	/**
-	 * Constructs a DropShip
-	 * sets primary weapon to NONE (unarmed)
-	 * @param owner owner of the unit
-	 */
-	public DropShip(Player owner) {
-		super(owner);
-		setWeapon(0, WeaponType.NONE); // unarmed
-		carried = new ArrayList<Unit>();
-	}
+    private ArrayList<Unit> carried;
 
-	private ArrayList<Unit> carried;
-	@Override
-	public ArrayList<Unit> getUnits() {
-		return carried;
-	}
+    /**
+     * Constructs a DropShip
+     * sets primary weapon to NONE (unarmed)
+     *
+     * @param owner owner of the unit
+     */
+    public DropShip(Player owner) {
+        super(owner);
+        setWeapon(0, WeaponType.NONE); // unarmed
+        carried = new ArrayList<Unit>();
+    }
 
-	@Override
-	public void resupply() {
-		//cannot resupply
+    @Override
+    public ArrayList<Unit> getUnits() {
+        return carried;
+    }
 
-	}
+    @Override
+    public void resupply() {
+        //cannot resupply
 
-	@Override
-	public boolean canResupply() {
-		return false;
-	}
+    }
 
-	@Override
-	public boolean canCarry(Unit u) {
-		switch(u.getMovementType()){
-		case FOOT:
-			return true;
-		case TREADS:
-			return true;
-		case TIRES:
-			return true;
-		default:
-			return false;
-		}
-	}
+    @Override
+    public boolean canResupply() {
+        return false;
+    }
 
-	@Override
-	public int getBuildCost() {
-		return 3000;
-	}
+    @Override
+    public boolean canCarry(Unit u) {
+        switch (u.getMovementType()) {
+            case FOOT:
+                return true;
+            case TREADS:
+                return true;
+            case TIRES:
+                return true;
+            default:
+                return false;
+        }
+    }
 
-	@Override
-	public double getBaseArmorResistance() {
-		return 1;
-	}
-	@Override
-	public int getDailyCost() {
-		return 5;
-	}
-	@Override
-	public int getMaxCapacity() {
-		return 3;
-	}
+    @Override
+    public int getBuildCost() {
+        return 3000;
+    }
+
+    @Override
+    public double getBaseArmorResistance() {
+        return 1;
+    }
+
+    @Override
+    public int getDailyCost() {
+        return 5;
+    }
+
+    @Override
+    public int getMaxCapacity() {
+        return 3;
+    }
 
 }

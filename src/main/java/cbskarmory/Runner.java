@@ -38,15 +38,16 @@ public class Runner {
     /**
      * precondition: 0 < fpsTarget < 1001
      * Foreground always runs at system refresh rate
+     *
      * @param fpsTarget target # of frames per second to update background at
      */
     public static void setFpsTarget(int fpsTarget) {
         if (fpsTarget > 1000 || fpsTarget < 1) {
             throw new IllegalArgumentException("fps target out of range");
-        }else if(fpsTarget>Runner.externalFPS){
+        } else if (fpsTarget > Runner.externalFPS) {
             JOptionPane.showMessageDialog(null, "Error: your monitor's current resolution is running at"
-                    + Runner.externalFPS + " hz , which is <" + fpsTarget + " hz","Bad FPS target",0,null);
-        }else{
+                    + Runner.externalFPS + " hz , which is <" + fpsTarget + " hz", "Bad FPS target", 0, null);
+        } else {
             Runner.fpsTarget = fpsTarget;
             Runner.msDelay = (int) Math.ceil(1000.0 / fpsTarget);
         }
@@ -69,13 +70,13 @@ public class Runner {
         Player p2 = new Player(new TestCO(), 0, new Color(75, 150, 255));
         setUpPlayers(p1, p2);
         TerrainGrid<Actor> g = null;
-        String[] options = { "map 1", "map 2", "Exit" };
+        String[] options = {"map 1", "map 2", "Exit"};
         int selection;
-        if(__DEBUG_MODE==false){
+        if (__DEBUG_MODE == false) {
             selection = JOptionPane.showOptionDialog(null,
                     "which map?\n\tMap 1: small map (10x10)\n\tMap 2: large map (24x24)", "Map Selection", 0, 0,
                     getMainIcon(), options, 2);
-        }else{
+        } else {
             selection = -1;
         }
         if (selection == 1) {
@@ -91,7 +92,7 @@ public class Runner {
             fillTerrainGrid(g, "resources/maps/map1.dat");
             minFill1(g, p1, p2);
             renderAVW(avw, g);
-        } else if (selection==-1) {
+        } else if (selection == -1) {
             System.out.println("ENTERING DEBUG MAP");
             //TODO add debug map
         } else {
@@ -233,9 +234,6 @@ public class Runner {
             for (int r = 0; r < g.getNumRows(); r++) {
 
                 String[] rowStringForm = sc.nextLine().split(",");
-                // System.out.println("good\n");
-                // System.out.print(new
-                // ArrayList<String>(Arrays.asList(rowStringForm)));
                 for (int c = 0; c < g.getNumCols(); c++) {
                     try {
                         g.getLocationArray()[r][c] = makeTerrain(r, c, g, rowStringForm[c]);
@@ -307,7 +305,7 @@ public class Runner {
 
         turnPlayer = next;
         turnPlayer.getPropertiesOwned().get(0).getHostGrid().hostWorld.getWorldFrame()
-                .setTitle("AdvanceWars GridWorld ("+Runner.fpsTarget+"hz) : player " + turnPlayer.id);
+                .setTitle("AdvanceWars GridWorld (" + Runner.fpsTarget + "hz) : player " + turnPlayer.id);
         for (Property p : turnPlayer.getPropertiesOwned()) {
             turnPlayer.setMoney(turnPlayer.getMoney() + MONEY_PER_PROPERTY);
             if (p.getCapTimer() != p.FULL_CAP_TIMER
