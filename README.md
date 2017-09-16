@@ -1,4 +1,4 @@
-AdvanceWarsGridWorld ![Icon](/icon.png?raw=true "AWGW Icon")
+AdvanceWarsGridWorld ![](https://github.com/CBSkarmory/AWGW/blob/master/src/main/resources/icon.png)
 ======================
 
 *for older commits, see [majig12346/AVGW](https://github.com/majig12346/AVGW)*
