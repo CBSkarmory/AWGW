@@ -1,4 +1,5 @@
 AdvanceWarsGridWorld ![](https://github.com/CBSkarmory/AWGW/blob/master/src/main/resources/icon.png)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ======================
 
 *for older commits, see [majig12346/AVGW](https://github.com/majig12346/AVGW)*
