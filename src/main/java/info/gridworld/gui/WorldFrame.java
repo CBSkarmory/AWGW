@@ -466,6 +466,14 @@ public class WorldFrame<T> extends JFrame {
 
     int newFPS = Runner.getFpsTarget();
 
+    private static final String HZ_3_DESC = "3 hz (GridWorld default)";
+    private static final String HZ_10_DESC = "10 hz";
+    private static final String HZ_24_DESC = "24 hz (cinematic)";
+    private static final String HZ_60_DESC = "60 hz";
+    private static final String HZ_120_DESC = "120 hz";
+    private static final String HZ_144_DESC = "144 hz";
+    private static final String HZ_CUSTOM_DESC = "Custom FPS Target";
+    
     public void showFPSConfigPopup() {
         int sysFPS = Runner.externalFPS, currentFPS = Runner.getFpsTarget();
         JFrame fpsConfigFrame = new JFrame("Refresh Rate Config");
@@ -478,40 +486,40 @@ public class WorldFrame<T> extends JFrame {
         fpsConfigFrame.setSize(400, 200);
         JComboBox<String> fpsComboBox = new JComboBox<>();
         fpsComboBox.addItem("[select target refresh rate]");
-        fpsComboBox.addItem("3 hz (GridWorld default)");
-        fpsComboBox.addItem("10 hz");
-        fpsComboBox.addItem("24 hz (cinematic)");
-        fpsComboBox.addItem("60 hz");
-        fpsComboBox.addItem("120 hz");
-        fpsComboBox.addItem("144 hz");
-        fpsComboBox.addItem("custom fps target");
+        fpsComboBox.addItem(HZ_3_DESC);
+        fpsComboBox.addItem(HZ_10_DESC);
+        fpsComboBox.addItem(HZ_24_DESC);
+        fpsComboBox.addItem(HZ_60_DESC);
+        fpsComboBox.addItem(HZ_120_DESC);
+        fpsComboBox.addItem(HZ_144_DESC);
+        fpsComboBox.addItem(HZ_CUSTOM_DESC);
         fpsComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     switch ((String) e.getItem()) {
-                        case "3 hz (GridWorld default)":
+                        case HZ_3_DESC:
                             Runner.setFpsTarget(3);
                             break;
-                        case "10 hz":
+                        case HZ_10_DESC:
                             Runner.setFpsTarget(10);
                             break;
-                        case "20 hz (recommended)":
-                            Runner.setFpsTarget(20);
+                        case HZ_24_DESC:
+                            Runner.setFpsTarget(24);
                             break;
-                        case "60 hz":
+                        case HZ_60_DESC:
                             Runner.setFpsTarget(60);
                             break;
-                        case "120 hz":
+                        case HZ_120_DESC:
                             Runner.setFpsTarget(120);
                             break;
-                        case "144 hz":
+                        case HZ_144_DESC:
                             Runner.setFpsTarget(144);
                             break;
                         default:
                             try {
                                 Runner.setFpsTarget(
                                         Integer.parseInt(JOptionPane.showInputDialog("set custom target FPS:")));
-                            } catch (Exception e2) {
+                            } catch (Exception ex) {
                                 JOptionPane.showMessageDialog(null,
                                         "Error: bad fps target\nfps target must be integer in range [1,1000]",
                                         "Bad FPS target", 0, null);
