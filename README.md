@@ -6,7 +6,13 @@
 
 *for older commits, see [majig12346/AWGW](https://github.com/majig12346/AWGW)*
 
-recreation and expansion of Advance Wars in Java with GridWorld API
+## Build instructions
+
+Run `mvn package`
+
+## Description
+
+Recreation and expansion of Advance Wars in Java with GridWorld API
 
 With 7 new Units!
 
