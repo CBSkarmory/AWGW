@@ -2,7 +2,7 @@
  * AP(r) Computer Science GridWorld Case Study:
  * Copyright(c) 2002-2006 College Entrance Examination Board 
  * (http://www.collegeboard.com).
- * Modified by CBSkarmory 2017 (https://github.com/CBSkarmory)
+ * Modified by CBSkarmory 2017-2019 (https://github.com/CBSkarmory)
  *
  * This code is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -418,16 +418,18 @@ public class WorldFrame<T> extends JFrame {
         dispDirections.setText("How to Play");
         menu.add(dispDirections);
         menu.addSeparator();
-        menu.add(makeMenuItem("menu.help.about", new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showAboutPanel();
-            }
-        }));
-        menu.add(makeMenuItem("menu.help.help", new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showHelp();
-            }
-        }));
+
+        // menu.add(makeMenuItem("menu.help.about", new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
+        //         showAboutPanel();
+        //     }
+        // }));
+        // menu.add(makeMenuItem("menu.help.help", new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
+        //         showHelp();
+        //     }
+        // }));
+	
         menu.add(makeMenuItem("menu.help.license", new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 showLicense();
@@ -645,7 +647,7 @@ public class WorldFrame<T> extends JFrame {
         JDialog dialog = new JDialog(this, resources.getString("dialog.license.title"));
         final JEditorPane text = new JEditorPane();
         try {
-            URL url = getClass().getResource("GNULicense.txt");
+            URL url = getClass().getClassLoader().getResource("LICENSE");
 
             text.setPage(url);
         } catch (Exception el) {
