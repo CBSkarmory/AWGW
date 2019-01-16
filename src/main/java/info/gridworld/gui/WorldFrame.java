@@ -442,7 +442,7 @@ public class WorldFrame<T> extends JFrame {
 
     private JMenu makeConfigMenu() {
         JMenu ans = new JMenu("Configuration");
-        JMenuItem fpsConfigItem = new JMenuItem("refresh rate settings");
+        JMenuItem fpsConfigItem = new JMenuItem("Refresh Rate Settings");
         fpsConfigItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 showFPSConfigPopup();
@@ -482,7 +482,6 @@ public class WorldFrame<T> extends JFrame {
                 + " hz (" + Runner.getMsDelay() + "ms delay)");
         JLabel newFPSLabel = new JLabel("new settings: background: ");
 
-        // TODO
         fpsConfigFrame.setSize(400, 200);
         JComboBox<String> fpsComboBox = new JComboBox<>();
         fpsComboBox.addItem("[select target refresh rate]");
@@ -540,6 +539,8 @@ public class WorldFrame<T> extends JFrame {
         fpsConfigFrame.setVisible(true);
     }
 
+
+    private static final String WIKI_DIRECTIONS_LINK = "https://en.wikipedia.org/wiki/Advance_Wars#Gameplay";
     public void showDirectionsPopup() {
         ImageIcon ico = MenuMaker.get16xIcon(getClass().getClassLoader().getResource("32x/intel.png"));
         JButton[] options = new JButton[2];
@@ -556,13 +557,17 @@ public class WorldFrame<T> extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (Desktop.isDesktopSupported()) {
                     try {
-                        Desktop.getDesktop().browse(new URI("https://en.wikipedia.org/wiki/Advance_Wars#Gameplay"));
-                    } catch (Exception exept) {
-                        /* TODO: error handling */
+                        Desktop.getDesktop().browse(new URI(WIKI_DIRECTIONS_LINK));
+                    } catch (Exception ex) {
+			JOptionPane.showMessageDialog(null,
+			    "Failed to open Wikipedia link: " + WIKI_DIRECTIONS_LINK,
+			    "Error Opening Directions Link", 0, null);
                     }
 
                 } else {
-					/* TODO: error handling */
+		    JOptionPane.showMessageDialog(null,
+			    "Failed to open Wikipedia link: " + WIKI_DIRECTIONS_LINK,
+			    "Error: Desktop not Supported", 0, null);
                 }
 
             }
@@ -572,7 +577,7 @@ public class WorldFrame<T> extends JFrame {
         JOptionPane.showOptionDialog(this, "Please see the following page (click link below):\n" + ""
                 + "\nI added quite a few more Units to the game." + "\nCommanding Officers are not yet implemented\n"
                 + "\nIn short, click a unit you wish to move, where to move, and what to do"
-                + "\n To win, capture the enemy HQ or destroy all enemy units!", "How to Play", 0, 0, ico, options, 0);
+                + "\nTo win, capture the enemy HQ or destroy all enemy units!", "How to Play", 0, 0, ico, options, 0);
 
     }
 
