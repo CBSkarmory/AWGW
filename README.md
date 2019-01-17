@@ -6,9 +6,21 @@
 
 *for older commits, see [majig12346/AWGW](https://github.com/majig12346/AWGW)*
 
-## Build instructions
+## Usage
 
-Run `mvn package`
+### Pre-compiled Binaries
+
+See [Releases](https://github.com/CBSkarmory/AWGW/releases)
+
+### Building it yourself
+
+This will require [Bazel](https://www.bazel.build/).
+
+To build, `bazel build //:awgw-v0.5-alpha'`
+
+To run (and build at once), `bazel run //:awgw-v0.5-alpha'`
+
+To run, the use the generated executable or jar file (in `bazel-bin/`)
 
 ## Description
 
