@@ -20,7 +20,10 @@ To build, `bazel build //:awgw-v0.5-alpha'`
 
 To run (and build at once), `bazel run //:awgw-v0.5-alpha'`
 
-To run, the use the generated executable or jar file (in `bazel-bin/`)
+To run, the use the generated executable in `bazel-bin/`
+
+Alternatively, build a standalone jar file using `bazel build //:awgw-v0.5-alpha_deploy.jar`.
+This will generate `awgw-v0.5-alpha_deploy.jar` in `bazel-bin/`.
 
 ## Description
 
@@ -28,11 +31,11 @@ Recreation and expansion of Advance Wars in Java with GridWorld API
 
 With 7 new Units!
 
-If you want to know how to play, you will be linked to Wikipedia in-game along with a breif summary of directions. 
+If you want to know how to play, you will be linked to Wikipedia in-game along with a brief summary of directions. 
 
 Alternatively, https://en.wikipedia.org/wiki/Advance_Wars#Gameplay
 
-**NOT IN IN-GAME DIRECTIONS**: hover a tile to see its applied defense (ie defense stars, unless the occupying unit is an air unit, in which case, it gets 0 defense stars)
+**NOT IN IN-GAME DIRECTIONS**: hover a tile to see its applied defense (i.e. defense stars, unless the occupying unit is an air unit, in which case, it gets 0 defense stars)
 
 ## Featuring :
 
