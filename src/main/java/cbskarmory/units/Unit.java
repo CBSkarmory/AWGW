@@ -17,6 +17,7 @@ package cbskarmory.units;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -451,9 +452,10 @@ public abstract class Unit extends Actor {
             double ans = Double.parseDouble(b.getString(getType()));
             return (int) (this.owner.CO.passive(ans, COFlag.DAILY_COST, getUnitType()));
         } catch (NumberFormatException e) {
-            System.out.println(e.getStackTrace());
-            System.out.println("Method: Unit.loadDailyCost()");
-            throw new RuntimeException("Corrupt File");
+	    System.err.println(Arrays.toString(e.getStackTrace()));
+	    System.err.println("Corrupt File?");
+            System.err.println("Method: Unit.loadDailyCost()");
+            throw e;
         }
     }
 
@@ -829,7 +831,7 @@ public abstract class Unit extends Actor {
                 return false;
             }
         } catch (ClassCastException actorIsNotAUnit) {
-            System.out.println(actorIsNotAUnit.getStackTrace());
+            System.err.println(Arrays.toString(actorIsNotAUnit.getStackTrace()));
             System.err.println("why do you have non-units in the grid");
             return false;
         }
