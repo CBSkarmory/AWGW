@@ -1038,8 +1038,7 @@ public class MenuMaker<T> {
                 };
                 a.setEnabled(true);
                 tmp.setAction(a);
-                Player[] p = {null};
-                Unit u = constructor.newInstance(p);
+                Unit u = constructor.newInstance((Player)(null));
                 int cost = u.getBuildCost();
                 String spaces = (cost < 1000 ? "  " : "");
                 String name = constructor.getDeclaringClass().getSimpleName();
